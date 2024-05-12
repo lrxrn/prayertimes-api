@@ -1,0 +1,17 @@
+{
+  "name": "prayertimes-api",
+  "version": "0.0.1",
+  "description": "Prayer times api for Maldives residents",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lrxrn",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mv-prayertimes": "^0.0.5"
+  }
+}

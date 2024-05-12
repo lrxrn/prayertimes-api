@@ -1,8 +1,7 @@
-require('dotenv').config()
-
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+
+app.get("/", (req, res) => res.send("Express on Vercel"));
 
 // Register routes
 const healthRouter = require('./routes/health');
@@ -13,6 +12,9 @@ app.use('/health', healthRouter);
 app.use('/today', todayPrayerRouter);
 app.use('/next', nextPrayerRouter)
 
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
+
+app.listen(80, () => {
+    console.log(`Server listening on port 80.`);
 });
+
+module.exports = app;

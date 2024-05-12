@@ -1,3 +1,5 @@
+process.env.TZ = 'Indian/Maldives';
+
 const express = require('express');
 const app = express();
 

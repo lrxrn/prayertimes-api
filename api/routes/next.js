@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
       const times = PrayerTimes.nextPrayer
       const island = PrayerTimes.island
     
-      res.json({ status: 'success', message: `Next prayer time for ${PrayerTimes.island.atoll}${PrayerTimes.island.island}`, island: island, times: JSON.stringify(times), date: new Date().toISOString().slice(0, 10) });
+      res.json({ status: 'success', message: `Next prayer time for ${PrayerTimes.island.atoll}${PrayerTimes.island.island}`, island: island, data: JSON.stringify(times), date: new Date().toISOString().slice(0, 10) });
 
     } catch(err) {
       console.log(err);

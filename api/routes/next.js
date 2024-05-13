@@ -1,16 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const { mapAtoll } = require('../../utils')
 const { MVPrayerTimes } = require("mv-prayertimes");
-
-function addMinutesToTime(minutesToAdd) {
-  const time = new Date(`1970-01-01T24:00:00`); // Set base date to avoid irrelevant parts
-  time.setMinutes(time.getMinutes() + minutesToAdd);
-  
-  const hours = time.getHours().toString().padStart(2, '0'); // Add leading zero for single digits
-  const minutes = time.getMinutes().toString().padStart(2, '0');
-  
-  return `${hours}:${minutes}`;
-}
 
 router.get('/', (req, res) => {
     const { location } = req.query; // Access query parameter
@@ -24,12 +15,14 @@ router.get('/', (req, res) => {
     
       const times = PrayerTimes.nextPrayer
       const island = PrayerTimes.island
+      const atoll = island.atoll
+      const namedAtoll = mapAtoll(atoll.slice(0, atoll.length - 1))
     
-      res.json({ status: 'success', message: `Next prayer for ${PrayerTimes.island.atoll}${PrayerTimes.island.island}`, island: island, data: JSON.stringify(times), date: new Date().toISOString().slice(0, 10) });
+      res.json({ status: 'OK', message: `Next prayer for ${namedAtoll} ${PrayerTimes.island.island}`, island: island, data: JSON.stringify(times), date: new Date().toISOString().slice(0, 10) });
 
     } catch(err) {
       console.log(err);
-      return res.json({ status: 'error', message: `Provide a valid location in the "location" query. (Ex. "?location=K.Male"`})
+      return res.json({ status: 'ERROR', message: `Provide a valid location in the "location" query. (Ex. "?location=K.Male"`})
     }
 
 });

@@ -1,0 +1,49 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #e9ecef, #fdfdfd);
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.location-select {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.location-select label {
+    margin-right: 10px;
+}
+
+select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+.prayer-times {
+    padding: 20px;
+    border-radius: 10px; /* Apply border radius to the container */
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.prayer-times p {
+    line-height: 1.2px;
+}
